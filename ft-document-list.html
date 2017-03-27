@@ -1,6 +1,10 @@
 <link rel="import" href="../polymer/polymer.html">
 
 <link rel="import" href="../iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../iron-list/iron-list.html">
+<link rel="import" href="../iron-label/iron-label.html">
+<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../ft-document-list-item/ft-document-list-item.html">
 
 <!--
 `ft-document-list`
@@ -15,9 +19,22 @@ An element that renders a list of FileThis documents
 
     <template>
 
-        <div>
-            ft-document-list
-        </div>
+        <iron-list selection-enabled
+                   id="documentList"
+                   items="[[documents]]"
+                   selected-item="{{selectedDocument}}"
+                   as="item"
+                   style="width:700px;">
+
+            <!-- Document item template -->
+            <template>
+                <ft-document-list-item
+                        style="border-bottom:1px solid #DDD;"
+                        document="[[item]]"
+                        selected$="[[selected]]">
+                </ft-document-list-item>
+            </template>
+        </iron-list>
 
     </template>
 
@@ -27,6 +44,24 @@ An element that renders a list of FileThis documents
             is: 'ft-document-list',
 
             properties: {
+                documents:
+                {
+                    type: Array,
+                    notify: true,
+                    value: [],
+                    observer: "_onDocumentsChanged"
+                },
+                selectedDocument:
+                {
+                    type: Object,
+                    notify: true,
+                    value: null
+                }
+            },
+
+            _onDocumentsChanged: function()
+            {
+                this.$.documentList.fire('resize')
             }
 
         });

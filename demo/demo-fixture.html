@@ -18,7 +18,11 @@ An element that renders a list of FileThis documents
 
     <template>
 
-        <ft-document-list></ft-document-list>
+        <div class="layout vertical center" style="height:394px">
+            <ft-document-list id="list"
+                              style="overflow:hidden; overflow-y:scroll; border:1px solid #DDD;">
+            </ft-document-list>
+        </div>
 
     </template>
 
@@ -30,6 +34,29 @@ An element that renders a list of FileThis documents
 
             properties:
             {
+            },
+
+            ready: function()
+            {
+                this._loadFakeDocuments();
+            },
+
+            _loadFakeDocuments: function()
+            {
+                var path = "fake-documents.json";
+
+                var xmlHttpRequest = new XMLHttpRequest();
+                xmlHttpRequest.overrideMimeType("application/json");
+                xmlHttpRequest.open('GET', path, true);
+                xmlHttpRequest.onreadystatechange = function()
+                {
+                    if (xmlHttpRequest.readyState == 4 &&
+                        xmlHttpRequest.status == "200")
+                    {
+                        list.documents = JSON.parse(xmlHttpRequest.responseText);
+                    }
+                };
+                xmlHttpRequest.send();
             }
 
         });
