@@ -38,6 +38,11 @@ An element that renders a list of FileThis documents
 
     </template>
 
+    <script type="text/javascript" src="../log4javascript/log4javascript.js"></script>
+    <script type="text/javascript">
+        var log = log4javascript.getDefaultLogger();
+    </script>
+
     <script>
         Polymer({
 
@@ -55,13 +60,36 @@ An element that renders a list of FileThis documents
                 {
                     type: Object,
                     notify: true,
-                    value: null
+                    value: null,
+                    observer: "onSelectedDocumentChanged"
+                },
+                hasSelectedDocument:
+                {
+                    type: Boolean,
+                    notify: true,
+                    value: false,
+                    observer: "onHasSelectedDocument"
                 }
+            },
+
+            ready: function()
+            {
+                log.debug("ft-document-list ready");
             },
 
             _onDocumentsChanged: function()
             {
                 this.$.documentList.fire('resize')
+            },
+
+            onSelectedDocumentChanged: function()
+            {
+                this.hasSelectedDocument = (this.selectedDocument != null);
+            },
+
+            onHasSelectedDocument: function()
+            {
+                log.debug("ft-document-list.onHasSelectedDocument(): this.hasSelectedDocument = " + this.hasSelectedDocument);
             }
 
         });
