@@ -49,6 +49,8 @@ An element that renders a list of FileThis documents
             is: 'ft-document-list',
 
             properties: {
+
+                /** The list of document resources to be be displayed. */
                 documents:
                 {
                     type: Array,
@@ -56,6 +58,8 @@ An element that renders a list of FileThis documents
                     value: [],
                     observer: "_onDocumentsChanged"
                 },
+
+                /** The currently-selected document, if any. */
                 selectedDocument:
                 {
                     type: Object,
