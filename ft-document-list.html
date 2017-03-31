@@ -60,15 +60,7 @@ An element that renders a list of FileThis documents
                 {
                     type: Object,
                     notify: true,
-                    value: null,
-                    observer: "onSelectedDocumentChanged"
-                },
-                hasSelectedDocument:
-                {
-                    type: Boolean,
-                    notify: true,
-                    value: false,
-                    observer: "onHasSelectedDocument"
+                    value: null
                 }
             },
 
@@ -80,16 +72,6 @@ An element that renders a list of FileThis documents
             _onDocumentsChanged: function()
             {
                 this.$.documentList.fire('resize')
-            },
-
-            onSelectedDocumentChanged: function()
-            {
-                this.hasSelectedDocument = (this.selectedDocument != null);
-            },
-
-            onHasSelectedDocument: function()
-            {
-                log.debug("ft-document-list.onHasSelectedDocument(): this.hasSelectedDocument = " + this.hasSelectedDocument);
             }
 
         });
