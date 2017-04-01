@@ -1,6 +1,6 @@
 {
     "name": "ft-document-list",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "An element that renders a list of FileThis documents",
     "main": "ft-document-list.html",
     "dependencies": {
