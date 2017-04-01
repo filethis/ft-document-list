@@ -38,11 +38,6 @@ An element that renders a list of FileThis documents
 
     </template>
 
-    <script type="text/javascript" src="../log4javascript/log4javascript.js"></script>
-    <script type="text/javascript">
-        var log = log4javascript.getDefaultLogger();
-    </script>
-
     <script>
         Polymer({
 
@@ -66,11 +61,6 @@ An element that renders a list of FileThis documents
                     notify: true,
                     value: null
                 }
-            },
-
-            ready: function()
-            {
-                log.debug("ft-document-list ready");
             },
 
             _onDocumentsChanged: function()
