@@ -67,8 +67,8 @@ An element that renders a list of FileThis documents
                 xmlHttpRequest.open('GET', path, true);
                 xmlHttpRequest.onreadystatechange = function()
                 {
-                    if (xmlHttpRequest.readyState == 4 &&
-                        xmlHttpRequest.status == "200")
+                    if (xmlHttpRequest.readyState === 4 &&
+                        xmlHttpRequest.status === 200)
                     {
                         list.documents = JSON.parse(xmlHttpRequest.responseText);
                     }
