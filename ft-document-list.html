@@ -32,7 +32,7 @@ An element that renders a list of FileThis documents
 
 <dom-module id="ft-document-list">
 
-    <style include="iron-flex iron-flex-alignment"></style>
+    <style include="iron-flex iron-flex-alignment iron-positioning"></style>
 
     <template>
 
@@ -82,8 +82,7 @@ An element that renders a list of FileThis documents
 
             _onDocumentsChanged: function(to, from)
             {
-                // Hack for some kind of bug in iron-list
-                this.async(function() { this.$.documentList.fire('iron-resize'); }, 1);
+                var foo = "bar";
             }
 
         });
