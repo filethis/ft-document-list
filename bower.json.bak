@@ -6,7 +6,7 @@
     "polymer": "Polymer/polymer#^1.9.1",
     "iron-list": "PolymerElements/iron-list#^2.0.0",
     "iron-label": "PolymerElements/iron-label#^2.0.0",
-    "ft-document-list-item": "filethis/ft-document-list-item#^0.0.6"
+    "ft-document-list-item": "filethis/ft-document-list-item#^0.0.7"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^2.0.0",
