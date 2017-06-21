@@ -98,8 +98,8 @@ find-version-everywhere:  ## Find and print versions of this project in use by a
 set-version-everywhere:  ## Set version of this project in all peer projects
 	@find ../.. -name bower.json -print | xargs sed -i .bak 's/${NAME}#^[0-9][0-9]*.[0-9][0-9]*.[0-9][0-9]*/${NAME}#^${VERSION}/g' && rm ./bower.json.bak || echo Not used;
 
-.PHONY: release-github-version
-release-github-version:  # Internal target: Tag with current version and push tags to remote for the git project. Usually invoked as part of a release via 'release' target.
+.PHONY: git-tag-version-and-push
+git-tag-version-and-push:  # Internal target: Tag with current version and push tags to remote for the git project. Usually invoked as part of a release via 'release' target.
 	@if [[ $$(git tag --list v${VERSION}) ]]; then \
 		echo Tag v${VERSION} already applied; \
 	else \
@@ -108,7 +108,7 @@ release-github-version:  # Internal target: Tag with current version and push ta
 	git push --tags;
 
 .PHONY: release
-release: set-version-everywhere git-add-fast git-commit-fast git-push release-github-version release-github-pages release-bower ## Release version of project.
+release: set-version-everywhere git-add-fast git-commit-fast git-push git-tag-version-and-push release-github-pages bower-register ## Release version of project.
 	@echo Released version ${VERSION} of \"${NAME}\" project
 
 
