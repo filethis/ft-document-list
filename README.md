@@ -4,7 +4,7 @@
 
 This element displays a list of FileThis [document resources](https://filethis.com/developers/doc/index.html#/documents), suitable for use in vertical list of other documents.
 
-By default, it uses [ft-document-list-item](https://github.com/filethis/ft-document-list-item) elements to represent each row.
+By default, it uses [ft-document-list-item](https://github.com/filethis/ft-document-list-item) elements to render each row.
 
 It is used by the [ft-document-panel](https://github.com/filethis/ft-document-panel) element.
 
