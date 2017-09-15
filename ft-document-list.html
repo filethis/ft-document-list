@@ -38,14 +38,16 @@ This element displays a list of FileThis document resources, suitable for use in
         <style>
             :host {
                 display:block;
+                @apply --layout-vertical;
             }
         </style>
 
-        <iron-list selection-enabled
-                   id="documentList"
-                   items="[[documents]]"
-                   selected-item="{{selectedDocument}}"
-                   as="item">
+        <iron-list
+                selection-enabled
+                id="documentList"
+                items="[[documents]]"
+                selected-item="{{selectedDocument}}"
+                as="item">
 
             <!-- Document item template -->
             <template>
@@ -63,6 +65,10 @@ This element displays a list of FileThis document resources, suitable for use in
         Polymer({
 
             is: 'ft-document-list',
+
+            behaviors: [
+                Polymer.IronResizableBehavior
+            ],
 
             properties: {
 
@@ -82,11 +88,6 @@ This element displays a list of FileThis document resources, suitable for use in
                     notify: true,
                     value: null
                 }
-            },
-
-            _onDocumentsChanged: function(to, from)
-            {
-                this.$.documentList.fire('resize')
             }
 
         });
