@@ -37,17 +37,20 @@ This element displays a list of FileThis document resources, suitable for use in
 
         <style>
             :host {
-                display:block;
-                overflow:hidden;
+                display: block;
+                overflow: hidden;
                 @apply --layout-vertical;
                 @apply --ft-document-list;
+            }
+            .list {
+                @apply --ft-document-list-list;
             }
         </style>
 
         <iron-list
                 selection-enabled
                 id="documentList"
-                class="flex"
+                class="list flex"
                 items="[[documents]]"
                 selected-item="{{selectedDocument}}"
                 as="item">
