@@ -1,6 +1,6 @@
 # Project configuration
 NAME=ft-document-list
-VERSION=1.0.25
+VERSION=1.0.26
 LOCAL_PORT=3638
 GITHUB_USER=filethis
 GITHUB_USER_ABBREV=ft

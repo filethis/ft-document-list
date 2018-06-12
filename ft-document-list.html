@@ -42,18 +42,19 @@ This element displays a list of FileThis document resources, suitable for use in
                 @apply --layout-vertical;
                 @apply --ft-document-list;
             }
-            .list {
+            #list {
                 @apply --ft-document-list-list;
             }
         </style>
 
         <iron-list
-                selection-enabled
-                id="documentList"
-                class="list flex"
-                items="[[documents]]"
-                selected-item="{{selectedDocument}}"
-                as="item">
+            id="list"
+            selection-enabled
+            class="flex"
+            items="[[documents]]"
+            selected-item="{{selectedDocument}}"
+            as="item"
+        >
 
             <!-- Document item template -->
             <template>
