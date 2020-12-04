@@ -1,7 +1,7 @@
 {
   "description": "An element that renders a list of FileThis documents",
-  "name": "filethis/ft-document-list",
-  "version": "filethis/1.0.29",
+  "name": "ft-document-list",
+  "version": "1.0.29",
   "resolutions": {
     "inherits": "2.0.3",
     "samsam": "1.1.3",
