@@ -13,11 +13,11 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-/* ft-document-list element demo */
+/* ft-document-list-item element demo */
 /* Imports */
 /**
 
-An element that renders a list of FileThis documents
+An element that renders information about a FileThis document in a parent list
 
 @demo
  */
@@ -29,7 +29,7 @@ An element that renders a list of FileThis documents
 
 import '@polymer/iron-flex-layout/iron-flex-layout-classes.js';
 import '@polymer/polymer/polymer-legacy.js';
-import '../ft-document-list.js';
+import '../ft-document-list-item.js';
 import { Polymer } from '@polymer/polymer/lib/legacy/polymer-fn.js';
 import { html } from '@polymer/polymer/lib/utils/html-tag.js';
 
@@ -42,17 +42,24 @@ Polymer
             :host {
                 display: block;
                 overflow: hidden;
-                width:500px;
-                height:500px;
             }
         </style>
 
-        <ft-element-demo name="ft-document-list" style="width:100%; height: 100%; ">
+        <div style="width:100%; height: 100%; ">
 
-            <ft-document-list id="list" slot="instance" style="width:100%; height: 100%; ">
-            </ft-document-list>
+            <div slot="instance" class="layout vertical center">
 
-        </ft-element-demo>
+                <!-- Normal -->
+                <ft-document-list-item id="normal" style="width:600px;"></ft-document-list-item>
+
+                <div style="height:25px;"></div>
+
+                <!-- Selected -->
+                <ft-document-list-item id="selected" style="width:600px;"></ft-document-list-item>
+
+            </div>
+
+        </div>
 `,
 
   is: 'demo-fixture',
@@ -63,12 +70,12 @@ Polymer
 
   ready: function()
   {
-      this._loadFakeDocuments();
+      this._loadFakeDocument();
   },
 
-  _loadFakeDocuments: function()
+  _loadFakeDocument: function()
   {
-      var path = "fake-documents.json";
+      var path = "fake-document.json";
 
       var xmlHttpRequest = new XMLHttpRequest();
       xmlHttpRequest.overrideMimeType("application/json");
@@ -78,7 +85,16 @@ Polymer
           if (xmlHttpRequest.readyState === 4 &&
               xmlHttpRequest.status === 200)
           {
-              this.$.list.documents = JSON.parse(xmlHttpRequest.responseText);
+              var document = JSON.parse(xmlHttpRequest.responseText);
+
+              // Normal
+              var documentNormal = Object.assign({}, document);
+              this.$.normal.document = documentNormal;
+
+              // Selected
+              var documentSelected = Object.assign({}, document);
+              this.$.selected.document = documentSelected;
+              this.$.selected.selected = true;
           }
       }.bind(this);
       xmlHttpRequest.send();
