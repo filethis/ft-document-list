@@ -2,11 +2,11 @@
   "version": "v1",
   "packages": {
     "ft-element-demo": {
-      "signature": "b246107b96990bfddd35a67af1d387b5",
+      "signature": "0a85f56af66c83190f4a7b563c318c55",
       "file": true
     },
     "ft-document-list-item": {
-      "signature": "44690db08f5e124be1c90f2db987c9e5",
+      "signature": "8bf1c527ee8f47557123ff4d802ffc97",
       "file": true
     }
   }
