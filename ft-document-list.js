@@ -25,7 +25,7 @@ This element displays a list of FileThis document resources, suitable for use in
   from HTML and may be out of place here. Review them and
   then delete this comment!
 */
-import 'ft-document-list-item/ft-document-list-item.js';
+import '@filethis/ft-document-list-item/ft-document-list-item.js';
 
 import '@polymer/iron-flex-layout/iron-flex-layout-classes.js';
 import '@polymer/iron-label/iron-label.js';
